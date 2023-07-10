@@ -1,0 +1,411 @@
+<!--
+
+$Id: offer-detail-template.dtd
+
+SuccessFactors confidential and proprietary.
+
+Copyright 2005 SuccessFactors, Inc. 999 Baker Way Suite 500
+San Mateo, CA 94404, U.S.A.  All rights reserved.
+
+This product or document is protected by copyright and distributed
+under licenses restricting its use, copying, distribution, and
+decompilation.  No part of this product or documentation may be
+reproduced in any form by any means without prior written
+authorization of SuccessFactors and its licensors, if any.
+
+DOCUMENTATION IS PROVIDED "AS IS" AND ALL EXPRESS OR IMPLIED
+CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE OR NON-INFRINGEMENT, ARE DISCLAIMED, EXCEPT
+TO THE EXTENT THAT SUCH DISCLAIMERS ARE HELD TO BE LEGALLY
+INVALID.
+
+_________________________________________________________________________
+
+Copyright 2005 SuccessFactors, Inc. 999 Baker Way Suite 500
+San Mateo, CA 94404, Etats-Unis.  Tous droits re'serve's.
+
+Ce produit ou document est prote'ge' par un copyright et distribue'
+avec des licences qui en restreignent l'utilisation, la copie, la
+distribution, et la de'compilation.  Aucune partie de ce produit ou de
+sa documentation associe'e ne peut e^tre reproduite sous aucune forme,
+par quelque moyen que ce soit, sans l'autorisation pre'alable et
+e'crite de SuccessFactors et de ses bailleurs de licence, s'il y en a.
+
+LA DOCUMENTATION EST FOURNIE "EN L'ETAT" ET TOUTES AUTRES CONDITIONS,
+DECLARATIONS ET GARANTIES EXPRESSES OU TACITES SONT FORMELLEMENT EXCLUES,
+DANS LA MESURE AUTORISEE PAR LA LOI APPLICABLE, Y COMPRIS NOTAMMENT
+TOUTE GARANTIE IMPLICITE RELATIVE A LA QUALITE MARCHANDE, A L'APTITUDE
+A UNE UTILISATION PARTICULIERE OU A L'ABSENCE DE CONTREFACON.
+-->
+<!--
+
+This is the XML DTD for the SuccessFactors Offer detail template
+deployment descriptor.  All such deployment descriptors must include a
+DOCTYPE of the following format:
+
+  <!DOCTYPE offer-detail-template PUBLIC
+    "-//SuccessFactors, Inc.//DTD Offer Detail Template//EN"
+        "http://cvs/viewcvs/V4/src/com/sf/dtd/offer-detail-template.dtd">
+
+The following DTD declaration is also valid, but is not preferred:
+
+  <!DOCTYPE offer-detail-template SYSTEM "offer-detail-template.dtd">
+
+-->
+<!--
+The offer-detail-template element is the root element of the offer detail
+template descriptor.  It contains:
+
+  - an id
+  - a name
+  - an optional description
+  - a last-modified date
+  - a list of job req field definitions
+  - a list of job application field definitions
+
+Spell checking is optional. Default is no spell checking.  Use spell-check="true" to turn on.
+
+
+-->
+<!ELEMENT offer-detail-template (template-name, template-desc?, template-lastmodified?, field-definition*, mobile-fields?, offer-approvers?, trigger-rule*)>
+
+<!--
+The name of the offer-detail-template. 
+
+Used in: offer-detail-template
+-->
+<!ELEMENT template-name (#PCDATA)>
+<!ATTLIST template-name
+    lang CDATA #IMPLIED
+>
+
+<!--
+A template-desc element is used to provide text describing the
+offer details.
+ 
+Use this element instead of comments as appropriate.
+
+Used in: offer-detail-template
+-->
+<!ELEMENT template-desc (#PCDATA)>
+<!--
+The last modification date of the offer detail list
+
+Used in: offer-detail-template
+-->
+<!ELEMENT template-lastmodified (#PCDATA)>
+
+<!--
+Supported languages tag holds multiple locales used to specify accepting languages for the offer details.
+
+Used in: offer-detail-template
+-->
+<!ELEMENT supported-languages (lang+)>
+
+<!--
+Lang tag used to define an accepting language in the offer detail.
+
+Used in: offer-detail-template
+-->
+<!ELEMENT lang (#PCDATA)>
+
+<!--
+The default rich text layout to use for the offer detail
+
+Used in: offer-detail-template
+-->
+<!ELEMENT default-listing-layout-id (#PCDATA)>
+
+
+<!--
+The field-definition element provides a data definition for a field 
+
+  text      - a single line of text (non-typed)
+  textarea  - multiple lines of text (non-typed)
+  date      - a date (typed)
+  percent   - a percent value (typed)
+  bool      - true or false (shown as a checkbox)
+  enum      - an enumerated type (shown as a pull-down list)
+  picklist  - field options come from an sf picklist (shown as a pull down list)
+  number    - a number value (typed)
+  currency  - a curency value (typed)
+  instruction - This type is for adding a instruction, no value should be attached to this field.
+  multiattachment - Indicates a field that can have multiple documents uploaded and attached to it.
+
+  (non-typed means the user's text is stored as entered)
+
+  (typed means the data is stored in an internal format and will be
+  entered by the user and presented to the user in a localized format)
+
+The "required" attribute specifies whether or not a field is required.
+If not required, the field may be left empty.
+
+The "label" attribute is used only for custom fields.  System fields defined below
+will use field labels from provisioning
+
+The width attribute specifies the width of the field in characters.
+It is an optional parameter. If not mentioned default value will be used.
+
+Default values are as follows:
+
+  text    - 25
+
+Fields labeled as textarea below have a max length of 256.
+They can be drwan as a text field with max length of 100 with no errors
+
+The following field ids have special meaning:
+       id                                type
+..................................................  
+    postalcode                    text
+    candidateName                 text  
+    firstName                     text
+    lastName                      text
+    middleName                    text
+    contactEmail                  text
+    homePhone                     text    
+    address                       text  
+    faxNumber                     text   
+    function                      text 
+    city                          text 
+    candidateHired                number  
+    options                       number     
+    stock                         number 
+    targetBonusPercent            percent
+    commission                    currency
+    nonRecoverableDraw            currency          
+    recoverableDraw               currency     
+    relocationCost                currency  
+    salAccepted                   currency  
+    signonBonus                   currency    
+    salaryBase                    currency
+    overtimeRate                  currency   
+    targetBonusAmount             currency
+    actualStartDate               date   
+    offerExtensionDate            date   
+    offerExpirationDate           date    
+    jobStartDate                  date
+    start                         date
+    commissionPack                textarea/text/picklist
+    eeoEstablishment              textarea/text/picklist
+    eeoGroup                      textarea/text/picklist
+    eeoJobCat                     textarea/text/picklist
+    jobCode                       textarea/text/picklist
+    optionsPack                   textarea/text/picklist
+    otherBonus                    textarea/text/picklist
+    otherCompensation             textarea/text/picklist
+    relocationPack                textarea/text/picklist
+    stockPackage                  textarea/text/picklist
+    state                         text/picklist
+    city                          text/picklist
+    zip                           text/picklist
+    country                       text/picklist
+    jobGrade                      text/picklist
+    jobLevel                      text/picklist
+    jobType                       text/picklist
+    classificationTime            enum    
+    classificationType            enum 
+    country                       enum
+    location                      enum
+    salRateType                   enum
+    bonusPayoutFreq               enum
+    source                        enum
+    stateProvince                 enum
+    currency                      enum
+    resume                        richText
+    coordinatorEmail              derived
+    coordinatorFax                derived
+    coordinatorPhone              derived
+    hiringManagerEmail            derived
+    hiringManagerFax              derived
+    hiringManagerPhone            derived
+    recruiterEmail                derived
+    recruiterPhone                derived
+    sourcerEmail                  derived
+    sourcerFax                    derived
+    sourcerPhone                  derived
+    secondRecruiterEmail          derived
+    secondRecruiterFax            derived
+    secondRecruiterPhone          derived
+    vpOfStaffingEmail             derived
+    vpOfStaffingFax               derived
+    vpOfStaffingPhone             derived
+    title                         textarea
+    recruiterName                 operator
+    coordinatorName               operator
+    hiringManagerName             operator
+    sourcerName                   operator
+    secondRecruiterName           operator
+    vpOfStaffingName              operator
+    id                            text
+    salaryMax                     currency
+    salaryMid                     currency
+    salaryMin                     currency
+    department                    enum
+    division                      enum
+    
+    Used in: job-req-fields,job-application-fields 
+-->
+<!ELEMENT field-definition (field-label+, field-description*, enum-value*, default-value?, field-format?, picklist-id?, trigger-rule*)>
+<!ATTLIST field-definition
+    id ID #REQUIRED
+    type (text | textarea | date | percent | bool | enum | number | picklist | questions | competencies | operator | derived | richText | instruction | currency | multiattachment| multiattachmentselection | jobCode | object | jobRole | operatorTeam) #REQUIRED
+    required (true | false) "false"
+    custom (true | false) "false"
+    multiselect (true | false) "false"
+    anonymize (true | false) "false"
+    width CDATA #IMPLIED
+    group-name CDATA #IMPLIED
+    template-type (job-req | job-application) #IMPLIED
+    object-type CDATA #IMPLIED
+>
+
+<!--
+The field-label element defines a localized name for a field.
+
+Used in: field-definition
+-->
+<!ELEMENT field-label (#PCDATA)>
+<!ATTLIST field-label
+    lang CDATA #IMPLIED
+    mime-type (text-plain | text-html) #IMPLIED
+>
+<!--
+The field-description element defines a localized description of a
+field.  If undefined, the localized version of the field-label is used
+whereever field-label would have been.
+
+Used in: field-definition
+-->
+<!ELEMENT field-description (#PCDATA)>
+<!ATTLIST field-description
+    lang CDATA #IMPLIED
+>
+
+<!ELEMENT picklist-id (#PCDATA)>
+<!ATTLIST picklist-id
+    parent-field-id CDATA #IMPLIED
+>
+
+
+<!--
+
+The enum-value tag defines one of the possible values that a field of
+type="enum" may have.  The order of the enum-value elements in the XML
+determines the order in which the drop-down list is presented, and the
+collation order for sorting by the field.
+
+The "value" attribute defines the non-localized, internal string,
+under which the data is stored.  (Use the enum-label sub-element to
+define localized string labels).
+
+The "style" attribute optionally defines a CSS style that should be
+applied to the data when displayed in the user interface.
+
+Used in: field-definition
+-->
+<!ELEMENT enum-value (enum-label+)>
+<!ATTLIST enum-value
+    value CDATA #REQUIRED
+    style CDATA #IMPLIED
+>
+<!--
+The enum-label element defines a localized name for an enumerated
+value.  The "lang" attribute, if present, specifies the locale for
+which the label should be displayed.  There MUST be at least one
+enum-label element defined per enum-value, and it MUST not have a lang
+attribute - this defines the label for the default locale.
+
+Used in: enum-value
+-->
+<!ELEMENT enum-label (#PCDATA)>
+<!ATTLIST enum-label
+    lang CDATA #IMPLIED
+>
+<!--
+The default-value defines the default or initial value of a field.
+
+For fields or columns of type="text", the value is copied directly to
+the contents of a field in a new goal, accounting for the locale as
+specified by the optional "lang" attribute.
+
+For fields or columns of type="enum", "date", "percent", "number", or "bool",
+the value is specified in a non-localized format, and the lang
+attribute is not allowed.  For "enum" fields, the contents must be
+"value" attribute of one of the enum-value elements.  For "date"
+attributes, the format is MM/DD/YYYY.  For "percent" the value is an
+unformatted number (no "%" sign).  For "bool" it must be either "true"
+or "false".
+
+In all cases, if the value is not required, an empty default-value tag
+specifies the the initial value of the field is empty.
+
+Used in: field-definition
+-->
+<!ELEMENT default-value (#PCDATA)>
+<!ATTLIST default-value
+    lang CDATA #IMPLIED
+>
+<!--
+The field-format defines the format of a field.
+
+Currently, it is only implemented for the number type to support the format string
+used in Java API DecimalFormat (http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html)
+common formats
+  #.00 - number with 2 decimals
+  #    - interger
+ '#'#  - prefix, formats 123 to "#123"
+ #%    - convert to integer and append % to the end.
+Used in: field-definition
+-->
+<!ELEMENT field-format (#PCDATA)>
+
+<!--
+mobile-fields is a list of field id's displayed on mobile
+-->
+<!ELEMENT mobile-fields (field*)>
+
+<!ELEMENT field EMPTY>
+<!ATTLIST field
+	refid IDREF #IMPLIED
+	application-field-id CDATA #IMPLIED
+>
+
+<!--
+offer-approvers is the pre-defined workflow of approvers
+-->
+<!ELEMENT offer-approvers (offerApprovalStep+)>
+<!ATTLIST offer-approvers
+    editable (true | false) "false"
+    reorder (true | false) "false"    
+>
+
+<!--
+offerApprovalStep is the approver step
+-->
+<!ELEMENT offerApprovalStep (field-label+, default-user?)>
+<!ATTLIST offerApprovalStep
+	id ID #REQUIRED
+    editable (true | false) "false"
+    editInvalidUser (true | false) "false"    
+>
+<!--
+The default-user element defines a default user for the approval step.
+
+Used in: offerApprovalStep
+-->
+<!ELEMENT default-user (#PCDATA)>
+<!ATTLIST default-user
+    type (role | user | recruitinggroup) #REQUIRED
+>
+
+<!--
+The trigger-rule element defines a rules to be invoked
+
+Used in: field-definition
+-->
+<!ELEMENT trigger-rule EMPTY>
+<!ATTLIST trigger-rule
+    event (onSave | onChange | onInit) #REQUIRED
+    rule CDATA #REQUIRED
+>

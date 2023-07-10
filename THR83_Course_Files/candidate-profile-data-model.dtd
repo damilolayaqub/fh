@@ -1,0 +1,612 @@
+<!--
+
+$Id: candidate-profile-data-model.dtd$
+
+SuccessFactors confidential and proprietary.
+
+Copyright 2005 SuccessFactors, Inc. 999 Baker Way Suite 500
+San Mateo, CA 94404, U.S.A.  All rights reserved.
+
+This product or document is protected by copyright and distributed
+under licenses restricting its use, copying, distribution, and
+decompilation.  No part of this product or documentation may be
+reproduced in any form by any means without prior written
+authorization of SuccessFactors and its licensors, if any.
+
+DOCUMENTATION IS PROVIDED "AS IS" AND ALL EXPRESS OR IMPLIED
+CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE OR NON-INFRINGEMENT, ARE DISCLAIMED, EXCEPT
+TO THE EXTENT THAT SUCH DISCLAIMERS ARE HELD TO BE LEGALLY
+INVALID.
+
+_________________________________________________________________________
+
+Copyright 2005 SuccessFactors, Inc. 999 Baker Way Suite 500
+San Mateo, CA 94404, Etats-Unis.  Tous droits re'serve's.
+
+Ce produit ou document est prote'ge' par un copyright et distribue'
+avec des licences qui en restreignent l'utilisation, la copie, la
+distribution, et la de'compilation.  Aucune partie de ce produit ou de
+sa documentation associe'e ne peut e^tre reproduite sous aucune forme,
+par quelque moyen que ce soit, sans l'autorisation pre'alable et
+e'crite de SuccessFactors et de ses bailleurs de licence, s'il y en a.
+
+LA DOCUMENTATION EST FOURNIE "EN L'ETAT" ET TOUTES AUTRES CONDITIONS,
+DECLARATIONS ET GARANTIES EXPRESSES OU TACITES SONT FORMELLEMENT EXCLUES,
+DANS LA MESURE AUTORISEE PAR LA LOI APPLICABLE, Y COMPRIS NOTAMMENT
+TOUTE GARANTIE IMPLICITE RELATIVE A LA QUALITE MARCHANDE, A L'APTITUDE
+A UNE UTILISATION PARTICULIERE OU A L'ABSENCE DE CONTREFACON.
+-->
+<!--
+
+This is the XML DTD for the SuccessFactors candidate detail
+deployment descriptor.  All such deployment descriptors must include a
+DOCTYPE of the following format:
+
+  <!DOCTYPE candidate-date-model PUBLIC
+	"-//SuccessFactors, Inc.//DTD Candidate Profile Data Model//EN"
+        "http://cvs/viewcvs/V4/src/com/sf/dtd/candidate-profile-date-model.dtd">
+
+The following DTD declaration is also valid, but is not preferred:
+
+  <!DOCTYPE candidate-date-model SYSTEM "candidate-profile-date-model.dtd">
+
+-->
+<!ELEMENT candidate-profile-data-model (template-name+, template-desc?, template-lastmodified?, (instruction-header?|(instruction-header-internal-candidate?,instruction-header-external-candidate?) | (instruction-header-external-candidate?,instruction-header-internal-candidate?)), operator-instruction-header?, field-definition+, (instruction-footer?|(instruction-footer-internal-candidate?,instruction-footer-external-candidate?) | (instruction-footer-external-candidate?,instruction-footer-internal-candidate?)), operator-instruction-footer?, search-display-options-config?, candidate-summary-display-options-config?, background-element*, sm-mapping*, field-permission*, button-permission*)>
+
+<!--
+The database id of the candidate data model.
+
+XXX/JGI - ask Ben for the semantics of this field
+
+Used in: candidate-data-model
+-->
+<!--
+The name of the candidate data model.  This is used by other
+applications in the suite to reference the job req template by
+name.
+
+Used in: candidate-data-model
+-->
+<!ELEMENT template-name (#PCDATA)>
+<!ATTLIST template-name
+	lang CDATA #IMPLIED
+    mime-type (text-plain | text-html) #IMPLIED
+>
+<!--
+A template-desc element is used to provide text describing.  
+This is an area to provide information that may be
+presented in tools for administration of job reqs.
+
+Use this element instead of comments as appropriate.
+
+Used in: candidate-data-model
+-->
+<!ELEMENT template-desc (#PCDATA)>
+
+<!--
+The last modification date of the candidate template
+
+Used in: candidate-data-model
+-->
+<!ELEMENT template-lastmodified (#PCDATA)>
+
+<!--
+The instruction text for the candidate profile that is displayed to the left of the candidate card.
+  This element can have multiple labels to define instructions for different locales.
+  Usage:
+
+  <instruction-header>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Instruction text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Instruction text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Instruction text here, eh!</b>]]></label>
+  </instruction-header>
+-->
+<!ELEMENT instruction-header (label+)>
+<!--
+The instruction text for an internal candidate profile that is displayed to the left of the candidate card.
+  This element can have multiple labels to define instructions for different locale.
+  Usage:
+
+  <instruction-header-internal-candidate>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Instruction text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Instruction text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Instruction text here, eh!</b>]]></label>
+  </instruction-header-internal-candidate>
+-->
+<!ELEMENT instruction-header-internal-candidate (label+)>
+<!--
+The instruction text for an external candidate profile that is displayed to the left of the candidate card.
+  This element can have multiple labels to define instructions for different locale.
+  Usage:
+
+  <instruction-header-external-candidate>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Instruction text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Instruction text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Instruction text here, eh!</b>]]></label>
+  </instruction-header-external-candidate>
+-->
+<!ELEMENT instruction-header-external-candidate (label+)>
+
+<!--
+The welcome text header for the candidate profile that is displayed to the left of the candidate card for the operators.
+  This element can have multiple labels to define instructions for different locales.
+  Usage:
+
+  <operator-instruction-header>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Welcome text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Welcome text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Welcome text here, eh!</b>]]></label>
+  </operator-instruction-header>
+-->
+<!ELEMENT operator-instruction-header (label+)>
+
+<!--
+The instruction text for the candidate profile that is displayed at the bottom of the profile.
+  Usage:
+
+  <instruction-footer>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Instruction text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Instruction text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Instruction text here, eh!</b>]]></label>
+  </instruction-footer>
+-->
+<!ELEMENT instruction-footer (label+)>
+<!--
+The instruction text for an internal candidate profile that is displayed at the bottom of the profile.
+  Usage:
+
+  <instruction-footer-internal-candidate>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Instruction text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Instruction text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Instruction text here, eh!</b>]]></label>
+  </instruction-footer-internal-candidate>
+-->
+<!ELEMENT instruction-footer-internal-candidate (label+)>
+<!--
+The instruction text for an external candidate profile that is displayed at the bottom of the profile.
+  Usage:
+
+  <instruction-footer-external-candidate>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Instruction text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Instruction text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Instruction text here, eh!</b>]]></label>
+  </instruction-footer-external-candidate>
+-->
+<!ELEMENT instruction-footer-external-candidate (label+)>
+
+<!--
+The welcome text footer for the candidate profile that is displayed to the left of the candidate card for the operators.
+  This element can have multiple labels to define instructions for different locales.
+  Usage:
+
+  <operator-instruction-footer>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Welcome text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Welcome text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Welcome text here, eh!</b>]]></label>
+  </operator-instruction-footer>
+-->
+<!ELEMENT operator-instruction-footer (label+)>
+
+<!--
+The field-definition element provides a data definition for a field of
+a candidate detail.  Fields have a type, label, description, row-label,
+default value, and type-specific data definitions.
+
+The "id" attribute defines the internal name for the field.  
+
+The "type" attribute defines the type of the field.  This is a
+combination of the stored-data type and UI hints.  The possible values
+for type attribute are:
+
+  text      - a single line of text (non-typed)
+  textarea  - multiple lines of text (non-typed)
+  date      - a date (typed)
+  percent   - a percent value (typed)
+  bool      - true or false (shown as a checkbox)
+  enum      - an enumerated type (shown as a pull-down list)
+  number    - a number value (typed)
+  currency  - currency (typed)
+  picklist  - picklist id which is an integer (typed)
+  instruction - This type is for adding a instruction into CDM 
+  
+  (non-typed means the user's text is stored as entered)
+
+  (typed means the data is stored in an internal format and will be
+  entered by the user and presented to the user in a localized format)
+
+The "required" attribute specifies whether or not a field is required.
+If not required, the field may be left empty.
+
+The "public" attribute specifies whether or not a field is
+readable AND writable for external applicant.
+
+The "custom" attribute specifies that the field is a custom field
+
+Please reference CandidateProfileFieldEnum.java for standard fields within the code.
+
+Please reference the Confluence page for corresponding documention:
+http://confluence/display/PRODINFO/Standard+Field+Guide+for+Candidate+Profile
+
+If you are adding a new standard field, you will need to add it to the Enum above and update
+the documentation in confluence.
+
+  (text* - fields may be defined to be of text, textarea, or enum.
+  Use enum with care.)
+
+  (enum* - fields may be defined to be of type enum, text, or
+  textarea.  Use text and textarea with care.)
+
+  (questions? - the field is used to configure the layout and permission for questions)
+
+-->
+<!ELEMENT field-definition (field-label+, field-description*, enum-value*, default-value?, field-format?, picklist-id?)>
+<!ATTLIST field-definition
+	id ID #REQUIRED
+	type (text | textarea | date | percent | bool | enum | number | picklist | derived | instruction | currency | multiattachmentselection | richText | hyperlink) #REQUIRED
+	required (true | false) "false"	
+	custom (true | false) "false"
+	public (true | false) "false"	
+	anonymize (true | false) "false"
+>
+
+<!--
+The field-label element defines a localized name for a field.
+
+Used in: field-definition
+-->
+<!ELEMENT field-label (#PCDATA)>
+<!ATTLIST field-label
+	lang CDATA #IMPLIED
+    mime-type (text-plain | text-html) #IMPLIED
+>
+<!--
+The field-description element defines a localized description of a
+field.  If undefined, the localized version of the field-label is used
+whereever field-label would have been.
+
+Used in: field-definition
+-->
+<!ELEMENT field-description (#PCDATA)>
+<!ATTLIST field-description
+	lang CDATA #IMPLIED
+    mime-type (text-plain | text-html) #IMPLIED
+>
+
+<!ELEMENT picklist-id (#PCDATA)>
+<!ATTLIST picklist-id
+	parent-field-id CDATA #IMPLIED
+>
+<!--
+
+The enum-value tag defines one of the possible values that a field of
+type="enum" may have.  The order of the enum-value elements in the XML
+determines the order in which the drop-down list is presented, and the
+collation order for sorting by the field.
+
+The "value" attribute defines the non-localized, internal string,
+under which the data is stored.  (Use the enum-label sub-element to
+define localized string labels).
+
+The "style" attribute optionally defines a CSS style that should be
+applied to the data when displayed in the user interface.
+
+Used in: field-definition
+-->
+<!ELEMENT enum-value (enum-label+)>
+<!ATTLIST enum-value
+	value CDATA #REQUIRED
+	style CDATA #IMPLIED
+>
+<!--
+The enum-label element defines a localized name for an enumerated
+value.  The "lang" attribute, if present, specifies the locale for
+which the label should be displayed.  There MUST be at least one
+enum-label element defined per enum-value, and it MUST not have a lang
+attribute - this defines the label for the default locale.
+
+Used in: enum-value
+-->
+<!ELEMENT enum-label (#PCDATA)>
+<!ATTLIST enum-label
+	lang CDATA #IMPLIED
+>
+<!--
+The default-value defines the default or initial value of a field.
+
+For fields or columns of type="text", the value is copied directly to
+the contents of a field in a new goal, accounting for the locale as
+specified by the optional "lang" attribute.
+
+For fields or columns of type="enum", "date", "percent", "number", or "bool",
+the value is specified in a non-localized format, and the lang
+attribute is not allowed.  For "enum" fields, the contents must be
+"value" attribute of one of the enum-value elements.  For "date"
+attributes, the format is MM/DD/YYYY.  For "percent" the value is an
+unformatted number (no "%" sign).  For "bool" it must be either "true"
+or "false".
+
+In all cases, if the value is not required, an empty default-value tag
+specifies the the initial value of the field is empty.
+
+Used in: field-definition
+-->
+<!ELEMENT default-value (#PCDATA)>
+<!ATTLIST default-value
+	lang CDATA #IMPLIED
+>
+<!--
+The field-format defines the format of a field.
+
+Currently, it is only implemented for the number type to support the format string
+used in Java API DecimalFormat (http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html)
+common formats
+  #.00 - number with 2 decimals
+  #    - interger
+ '#'#  - prefix, formats 123 to "#123"
+ #%    - convert to integer and append % to the end.
+Used in: field-definition
+-->
+<!ELEMENT field-format (#PCDATA)>
+
+<!--
+Background element that describe candidate background, this can be used for anything that has many attributes
+associated. Id has to be bg1, bg2, ... bg15 for Solr indexing
+This will be associated to live profile template background element
+Please make sure type-id is unique on each background-element
+-->
+<!ELEMENT background-element (label+, field-description?, instruction?, (data-field* | rating-field*))>
+<!ATTLIST background-element
+	type-id NMTOKEN #REQUIRED
+	id ID  #REQUIRED
+	name CDATA #IMPLIED
+	max-entries NMTOKEN #IMPLIED
+	scale-id NMTOKEN #IMPLIED
+	required (true | false) "false"
+>
+
+<!ELEMENT data-field (label+, picklist?)>
+<!ATTLIST data-field
+	id NMTOKEN #REQUIRED
+	field-name (name | desc | vfld1 | vfld2 | vfld3 | vfld4 | vfld5 | vfld6 | vfld7 | vfld8 | vfld9 | vfld10 | vfld11 | vfld12 | vfld13 | vfld14 | vfld15 | startDate | endDate | dfld1 | dfld2 | dfld3 | ifld1 | ifld2 | ifld3 | ifld4 | ifld5 | ffld1 | ffld2 | ffld3 | ffld4 ) #REQUIRED
+	required (true | false) "false"
+	url-link (true | false) "false"
+	field-type (number|text|date) "text"
+	hidden (true | false) "false"
+	anonymize (true | false) "false"
+	max-length NMTOKEN #IMPLIED
+	display-size NMTOKEN #IMPLIED
+>
+
+<!ELEMENT picklist (#PCDATA)>
+<!ATTLIST picklist
+	id NMTOKEN #REQUIRED
+	parent-field-id CDATA #IMPLIED
+>
+<!--
+candSearchDisplayOptions element that describe candSearchDisplayOptions, this can be used for anything that has many attributes
+associated. Id has to be bg1, bg2, ... bg15 for Solr indexing
+This will be associated to live profile template background element
+Please make sure type-id is unique on each category
+-->
+<!ELEMENT  search-display-options-config (category*)>
+
+<!ELEMENT category (label+, column*)>
+<!ATTLIST category
+  id   ID    #REQUIRED
+  name CDATA #REQUIRED  
+>
+
+<!ELEMENT column (label*)>
+<!ATTLIST column
+  name      CDATA #IMPLIED  
+  field-ref CDATA #IMPLIED  
+  bge-ref   CDATA #IMPLIED
+  gridOrder CDATA #REQUIRED
+  select-by-default (true | false) "false"  
+>
+
+<!--
+candSummaryDisplayOptions element that describe candSummaryDisplayOptions, this can be used for anything that has many attributes
+associated.Please make sure type-id is unique on each category
+-->
+<!ELEMENT  candidate-summary-display-options-config (category*)>
+<!--
+The instruction text for the candidate profile that is displayed above its respected background element section.
+  This element can have multiple labels to define instructions for different locales.
+  Usage:
+
+  <instruction>
+    <label lang="EN-US" mime-type="text-html"><![CDATA[<b>Instruction text here, @%$&@!</b>]]></label>
+    <label lang="EN-UK" mime-type="text-html"><![CDATA[<b>Instruction text here, guv'na!</b>]]></label>
+    <label lang="EN-CA" mime-type="text-html"><![CDATA[<b>Instruction text here, eh!</b>]]></label>
+  </instruction>
+-->
+<!ELEMENT instruction (label+)>
+
+<!--
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$  IMPORTANT IMPORTANT $$$$$$$$$$$$$$$$$$$$$$
+$$$   DO NOT REMOVE OR COMMENT OUT ANY RATING FIELD   $$$
+$$$   IF YOU WANT TO 'REMOVE' IT, USE THE 'visibility'$$$
+$$$   ATTRIBUTE AND SET IT TO 'none'.                 $$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Rating Element:
+  rating-name: the type of rating field. Types are
+        predefined. Here are some points about the
+        specific types:
+          start-date, end-date: At least one of them
+                 must be required (and of course visible).
+                 If either one has visiblity = none or view,
+                 then it will take on the value of the other.
+          name: the name of the rating. not meaningful for
+                 performance or potential.  Used to store
+                 the name of the competency (for competency
+                 rating) and name of the objective (for
+                 objective rating). If you wish to view
+                 all overall competency scores from all forms
+                 for a user in Live Profile, then you can
+                 set this element to view and the entire section
+                 to read only.
+          desccription: similar to name. Useful for Competency and
+                 Objective.
+          rating: REQUIRED REQUIRED REQUIRED REQUIRED REQUIRED
+                 REQUIRED REQUIRED REQUIRED REQUIRED REQUIRED.
+                 Set required to true.
+                 A rating item MUST have a rating; otherwise
+                 what's the use of entering it!!!!! MAKE SURE
+                 YOU SET THE ATTRIBUTE 'insert-rating' to true
+                 for this field.
+                 If you do not wish to see the numeric rating
+                 in the view page, then set 'visibility' to
+                 'edit'.
+          label: NEVER SET THIS ITEM's 'visibility' TO 'edit'
+                 unless you are absolutely sure you know what
+                 you're doing.  I have not seen any need to do
+                 that in the field. This item is mainly provided
+                 for rating import when the rating label is NOT
+                 the same as our system's label (because it came
+                 from another system and they want to maintain
+                 the exact label).
+          min:   similar in usage to 'label'. It is provided to
+                 allow importing of ratings into our system. We
+                 need the min value to know the range of the rating
+                 value itself.
+          max:   similar to min.
+          source and module: ALWAYS SET 'system-generated' TO 'true'
+                 FOR THOSE ITEMS.  These fields can be useful to tell
+                 the user where the rating came from.  And if it is
+                 from a form, there is a hyperlink directly to the
+                 form (NOT YET IMPLEMENTED!!).
+        NOTE TO DEVELOPERS:
+        corresponds to one of the fields found in
+        the feedback table. If you add a field to the
+        feedback table and it is pertinent to a rating,
+        then please add it here.
+
+  insert-rating: The system will insert the scale drop
+        down list in any field that has the insert-rating
+        set to true. ONLY USE IT FOR THE 'rating' FIELD.
+  system-generated: This field can not be edited/entered
+        by the user (neither through selfservice nor
+        through import).  Based on the entered values,
+        the system will generate an appropriate one.
+        For example, if end-date is set to system generated,
+        then the system will insert the start date into
+        the end date.
+  visibility: four possible values:
+                  VIEW: only show this field in the view template (i.e., read only view).
+                  EDIT: only show this field when creating a new entry (i.e, edit mode)
+                  BOTH: show this field in both read only and edit modes.
+                  NONE: don't show this field at all.
+  required: like it means.
+  display-size: the size of the html input field in characters.
+  max-length: the maximum # of characters that can be entered in the html form.
+
+  One last thing, do not delete or comment out any rating-field (did
+  I already mention that ;) ).
+-->
+<!ELEMENT rating-field (label+, picklist-id?)>
+<!ATTLIST rating-field
+	rating-name (start-date | end-date | name | description | rating | label | min | max | source | module) #REQUIRED
+	insert-rating (true | false) "false"
+	system-generated (true | false) "false"
+	visibility (edit | view | none | both) "both"
+	required (true | false) "false"
+	max-length NMTOKEN #IMPLIED
+	display-size NMTOKEN #IMPLIED
+>
+
+<!ELEMENT label (#PCDATA)>
+<!ATTLIST label
+	xml:lang NMTOKEN #IMPLIED
+	mime-type (text-plain | text-html) #IMPLIED
+>
+
+<!--
+Use sm-mapping to map a field defined in this template to succession data model
+please make sure you are mapping to an existing field with same type (i.e. background-element has to map to background-element in SM)
+template Validator won't error out if you are mapping to a wrong field. 
+-->
+<!ELEMENT sm-mapping (#PCDATA)>
+<!ATTLIST sm-mapping 
+  field-id IDREF #IMPLIED
+  map-to NMTOKEN #REQUIRED
+ >
+
+ <!--
+ The feature-permission element defines the access to specific field of a candidate profile for candidates or dynamic group users. 
+  <field-permission type="read">
+    <description>Anybody can view the following fields.</description>
+    <role-name>*</role-name>
+    <country>*</country>
+    <field refid="firstName"/>
+    <field refid="lastName"/>
+    < bg-element refid="bg1" data-field-id="*" />   
+  </field-permission>
+ -->
+<!ELEMENT field-permission (description?, role-name+, country+, source+, field+, bg-element*)>
+<!ATTLIST field-permission
+	type (none | read | write ) #REQUIRED
+>
+
+<!--
+The description element is used to hold a description for a element
+that may be displayed a template editor or administration tool.
+
+Used in: field-permission
+-->
+<!ELEMENT description (#PCDATA)>
+<!--
+The role-name element specifies a role. 
+Candidate or dynamic group name
+Used in: field-permission
+-->
+<!ELEMENT role-name (#PCDATA)>
+<!ATTLIST role-name
+	group-name CDATA #IMPLIED
+>
+<!--
+Country specifies the country of candidates.
+
+Used in: field-permission
+-->
+<!ELEMENT country (#PCDATA)>
+<!--
+Source specifies the source of candidates that is internal or external.
+
+Used in: field-permission
+-->
+<!ELEMENT source (#PCDATA)>
+
+<!--
+The field element specifies a field reference.  The "refid" attribute
+specified the "id" attribute previously defined in a field-definition
+element.  The special case of refid="*" represents all fields, but may
+not be appropriate in all cases where field is allowed.
+
+Used in: field-permission
+-->
+<!ELEMENT field EMPTY>
+<!ATTLIST field
+	refid CDATA #IMPLIED
+>
+
+<!--
+The bg-element specifies a field reference for back ground element.  The "refid" attribute
+specified the "id" attribute previously defined in a background-element
+element.  The attribute data-field-id specifies the data-field configured under background element.
+"*" can be defined for data-field-id which implies that all the data-fields configured under background element.
+
+Used in: field-permission
+-->
+<!ELEMENT bg-element EMPTY>
+<!ATTLIST bg-element
+	refid IDREF #IMPLIED
+	data-field-id CDATA #REQUIRED
+>
+ 

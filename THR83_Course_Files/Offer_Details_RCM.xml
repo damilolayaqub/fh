@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE offer-detail-template PUBLIC "-//SuccessFactors, Inc.//DTD Offer Detail Template//EN" "offer-detail-template.dtd">
+<offer-detail-template>
+ <template-name><![CDATA[Offer Details]]></template-name>
+  <template-desc><![CDATA[Offer Details]]></template-desc>
+  <template-lastmodified>10/9/28 9:58 AM</template-lastmodified>
+  <field-definition id="id" type="text" required="false" custom="false" template-type="job-req">
+  <field-label><![CDATA[Requisition ID]]></field-label>
+  <field-description><![CDATA[  ]]></field-description>
+  </field-definition>
+  <field-definition id="title" type="textarea" required="true" custom="false" template-type="job-req">
+  <field-label><![CDATA[Title]]></field-label>
+  <field-description><![CDATA[  ]]></field-description>
+  </field-definition>
+  <field-definition id="hiringManagerName" type="operator" required="true" custom="false" template-type="job-req">
+  <field-label><![CDATA[Hiring Manager]]></field-label>
+  <field-description><![CDATA[G]]></field-description>
+  </field-definition>
+  <field-definition id="resume" type="text" required="false" custom="false" template-type="job-application">
+  <field-label><![CDATA[Candidate Quick View]]></field-label>
+  <field-description><![CDATA[Candidate Quick View]]></field-description>
+  </field-definition>
+  <offer-approvers editable="true" reorder="true">
+    <offerApprovalStep id="hiringManagerApproval" editable="true" editInvalidUser="true">
+     <field-label><![CDATA[Hiring Manager]]></field-label>
+        <default-user type="role"><![CDATA[G]]></default-user>
+    </offerApprovalStep>
+    <offerApprovalStep id="hrApproval" editable="true" editInvalidUser="true">
+     <field-label><![CDATA[HR Approval]]></field-label>
+        <default-user type="user"><![CDATA[admin_dv]]></default-user>
+    </offerApprovalStep>
+  </offer-approvers>
+</offer-detail-template>
+
+

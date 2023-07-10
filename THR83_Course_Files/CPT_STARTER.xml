@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE candidate-profile-data-model PUBLIC "-//SuccessFactors, Inc.//DTD Candidate Profile Data Model//EN" "candidate-profile-data-model.dtd">
+<candidate-profile-data-model>
+  <template-name><![CDATA[Candidate Profile Template]]></template-name>
+  <template-desc><![CDATA[This defined candidate profile fields.]]></template-desc>
+<instruction-header>
+  <label mime-type="text-html"><![CDATA[ <b>Dear candidate,</b> <br><br>Thank you for expressing your interest.<br><br>
+We would like to know more about you so we can best find a job that fits you. Please add more details about yourself to your profile page. Currently we search for candidates in two ways: 1) by searching your resume and 2) by searching the fields in your candidate profile.  By completing the fields in your profile you increase the chances that our recruiters find your information in a candidate search. Please keep in mind that you can also adjust your visibility preferences on your profile.<br><br> We will contact you if we find a position matching your personal interests and abilities.    
+If you have applied to a specific opening, please be aware that the information you provide here is available to the reviewers of your application.<br><br>Your Recruiting Team<br>]]></label>
+  <label mime-type="text-html" xml:lang="de_DE"><![CDATA[ <b>Sehr geehrter Bewerber, </b> <br><br>Vielen Dank für Ihr Interesse. <br><br>
+Wir würden sehr gern mehr über Sie erfahren, um die für Sie am besten passende Stelle zu finden.<br>Wir bitten Sie daher, so viele Details wie möglich in Ihrem Profil einzutragen. Momentan läuft die Kandidatensuche bei Siemens auf zwei verschiedenen Wegen ab: 1) in Ihrem Lebenslauf und 2) in Ihrem Bewerberprofil. Durch Vervollständigen Ihrer Angaben in ihrem Profil können Sie also Ihre Chancen, bei einer Suche gefunden zu werden, erhöhen. Bitte beachten Sie auch, dass Sie Ihre Sichtbarkeitseinstellungen in Ihrem Profil entsprechend anpassen können. <br><br>     
+Sobald wir eine Stelle, die Ihren persönlichen Interessen und Fähigkeiten entspricht, finden, werden wir Sie kontaktieren. Für den Fall, dass Sie sich auf eine besondere Stellenausschreibung beworben haben, beachten Sie bitte, dass die hier eingetragenen Informationen auch für die Empfänger Ihrer Bewerbung sichtbar sind. <br><br>Ihr Recruiting Team<br>]]></label>
+  <label mime-type="text-html" xml:lang="en_GB"><![CDATA[ <b>Dear candidate,</b> <br><br>Thank you for expressing your interest.<br><br>
+We would like to know more about you so we can best find a job that fits you. Please add more details about yourself to your profile page. Currently we search for candidates in two ways: 1) by searching your resume and 2) by searching the fields in your candidate profile.  By completing the fields in your profile you increase the chances that our recruiters find your information in a candidate search. Please keep in mind that you can also adjust your visibility preferences on your profile.<br><br> We will contact you if we find a position matching your personal interests and abilities.    
+If you have applied to a specific opening, please be aware that the information you provide here is available to the reviewers of your application.<br><br>Your Recruiting Team<br>]]></label>
+  <label mime-type="text-html" xml:lang="en_US"><![CDATA[ <b>Dear candidate,</b> <br><br>Thank you for expressing your interest.<br><br>
+We would like to know more about you so we can best find a job that fits you. Please add more details about yourself to your profile page. Currently we search for candidates in two ways: 1) by searching your resume and 2) by searching the fields in your candidate profile.  By completing the fields in your profile you increase the chances that our recruiters find your information in a candidate search. Please keep in mind that you can also adjust your visibility preferences on your profile.<br><br> We will contact you if we find a position matching your personal interests and abilities.    
+If you have applied to a specific opening, please be aware that the information you provide here is available to the reviewers of your application.<br><br>Your Recruiting Team<br>]]></label>
+</instruction-header>
+  <field-definition id="firstName" type="text" required="true" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[First Name]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Vorname]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[First Name]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[First Name]]></field-label>
+    <field-description><![CDATA[First Name ]]></field-description>
+    <field-description lang="de_DE"><![CDATA[Vorname]]></field-description>
+    <field-description lang="en_GB"><![CDATA[First Name]]></field-description>
+    <field-description lang="en_US"><![CDATA[First Name]]></field-description>
+  </field-definition>
+  <field-definition id="middleName" type="text" required="false" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Middle Name]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[2. Vorname]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[Middle Name]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[Middle Name]]></field-label>
+    <field-description><![CDATA[Middle Name ]]></field-description>
+    <field-description lang="de_DE"><![CDATA[2. Vorname]]></field-description>
+    <field-description lang="en_GB"><![CDATA[Middle Name]]></field-description>
+    <field-description lang="en_US"><![CDATA[Middle Name]]></field-description>
+  </field-definition>
+  <field-definition id="lastName" type="text" required="true" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Last Name]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Nachname]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[Last Name]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[Last Name]]></field-label>
+    <field-description><![CDATA[Last Name ]]></field-description>
+    <field-description lang="de_DE"><![CDATA[Nachname]]></field-description>
+    <field-description lang="en_GB"><![CDATA[Last Name]]></field-description>
+    <field-description lang="en_US"><![CDATA[Last Name]]></field-description>
+  </field-definition>
+  <field-definition id="contactEmail" type="text" required="true" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Email]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Email]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[Email]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[Email]]></field-label>
+    <field-description><![CDATA[Email Address]]></field-description>
+    <field-description lang="de_DE"><![CDATA[EMail]]></field-description>
+    <field-description lang="en_GB"><![CDATA[Email]]></field-description>
+    <field-description lang="en_US"><![CDATA[Email]]></field-description>
+  </field-definition>
+  <field-definition id="cellPhone" type="text" required="true" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Primary Phone]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Telefon mobil]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[Primary Phone]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[Primary Phone]]></field-label>
+    <field-description><![CDATA[Phone 1]]></field-description>
+    <field-description lang="de_DE"><![CDATA[Telefon tagsüber]]></field-description>
+    <field-description lang="en_GB"><![CDATA[Phone 1]]></field-description>
+    <field-description lang="en_US"><![CDATA[Phone 1]]></field-description>
+  </field-definition>
+  <field-definition id="homePhone" type="text" required="false" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Secondary Phone]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Telefon privat]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[Secondary Phone]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[Secondary Phone]]></field-label>
+    <field-description><![CDATA[Phone 2]]></field-description>
+    <field-description lang="de_DE"><![CDATA[Telefon privat]]></field-description>
+    <field-description lang="en_GB"><![CDATA[Phone 2]]></field-description>
+    <field-description lang="en_US"><![CDATA[Phone 2]]></field-description>
+  </field-definition>
+  <field-definition id="address" type="text" required="false" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Street Address]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Straße]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[Street Address]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[Street Address]]></field-label>
+    <field-description><![CDATA[Street Address]]></field-description>
+    <field-description lang="de_DE"><![CDATA[Straße]]></field-description>
+    <field-description lang="en_GB"><![CDATA[Street Address]]></field-description>
+    <field-description lang="en_US"><![CDATA[Street Address]]></field-description>
+  </field-definition>
+  <field-definition id="city" type="text" required="false" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[City]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Ort]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[City]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[City]]></field-label>
+    <field-description><![CDATA[City]]></field-description>
+    <field-description lang="de_DE"><![CDATA[Ort]]></field-description>
+    <field-description lang="en_GB"><![CDATA[City]]></field-description>
+    <field-description lang="en_US"><![CDATA[City]]></field-description>
+  </field-definition>
+  <field-definition id="zip" type="text" required="false" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Postal Code]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Postleitzahl]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[Postal Code]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[Postal Code]]></field-label>
+    <field-description><![CDATA[Postal Code]]></field-description>
+    <field-description lang="de_DE"><![CDATA[Postleitzahl]]></field-description>
+    <field-description lang="en_GB"><![CDATA[Postal Code]]></field-description>
+    <field-description lang="en_US"><![CDATA[Postal Code]]></field-description>
+  </field-definition>
+  <field-definition id="candComment" type="textarea" required="false" custom="true">
+    <field-label mime-type="text-plain"><![CDATA[Additional Comments]]></field-label>
+    <field-label mime-type="text-plain" lang="de_DE"><![CDATA[Zusätzlicher Kommentar]]></field-label>
+    <field-label mime-type="text-plain" lang="en_GB"><![CDATA[Additional Comments]]></field-label>
+    <field-label mime-type="text-plain" lang="en_US"><![CDATA[Additional Comments]]></field-label>
+    <field-description><![CDATA[Additional Comments]]></field-description>
+    <field-description lang="de_DE"><![CDATA[Zusätzlicher Kommentar]]></field-description>
+    <field-description lang="en_GB"><![CDATA[Additional Comments]]></field-description>
+    <field-description lang="en_US"><![CDATA[Additional Comments]]></field-description>
+  </field-definition>
+  <field-definition id="resume" type="richText" required="false" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Resume]]></field-label>
+    <field-description><![CDATA[Resume]]></field-description>
+  </field-definition>
+  
+  <field-definition id="coverLetter" type="richText" required="false" custom="false">
+    <field-label mime-type="text-plain"><![CDATA[Cover letter]]></field-label>
+    <field-description><![CDATA[Cover Letter]]></field-description>
+  </field-definition>
+    <field-definition id="attachment1" type="multiattachmentselection" required="false" custom="true">
+  <field-label mime-type="text-plain"><![CDATA[Attachment1 Documents: ]]></field-label>
+  <field-description><![CDATA[Attachment1 Documents]]></field-description>
+</field-definition>
+<field-definition id="attachment2" type="multiattachmentselection" required="false" custom="true">
+  <field-label mime-type="text-plain"><![CDATA[Attachment2 Documents: ]]></field-label>
+  <field-description><![CDATA[Attachment2 Documents]]></field-description>
+</field-definition>
+<background-element id="outsideWorkExperience" type-id="4">
+  <label><![CDATA[Previous Employment]]></label>
+  <label xml:lang="de_DE"><![CDATA[Bisherige Tätigkeiten]]></label>
+  <label xml:lang="en_GB"><![CDATA[Previous Employment]]></label>
+  <label xml:lang="en_US"><![CDATA[Previous Employment]]></label>
+  <data-field id="presentEmployer" field-name="vfld4" required="true" max-length="4000">
+    <label><![CDATA[Present Employer?]]></label>
+    <label xml:lang="de_DE"><![CDATA[Present Employer?]]></label>
+    <label xml:lang="en_GB"><![CDATA[Present Employer?]]></label>
+    <label xml:lang="en_US"><![CDATA[Present Employer?]]></label>
+    <picklist id="yesno"/>
+  </data-field>
+  <data-field id="employer" field-name="vfld2" required="true" max-length="4000">
+    <label><![CDATA[Company Name]]></label>
+    <label xml:lang="de_DE"><![CDATA[Unternehmen]]></label>
+    <label xml:lang="en_GB"><![CDATA[Company Name]]></label>
+    <label xml:lang="en_US"><![CDATA[Company Name]]></label>
+  </data-field>
+  <data-field id="startTitle" field-name="vfld3" required="true" max-length="4000">
+    <label><![CDATA[Title]]></label>
+    <label xml:lang="de_DE"><![CDATA[Position]]></label>
+    <label xml:lang="en_GB"><![CDATA[Title]]></label>
+    <label xml:lang="en_US"><![CDATA[Title]]></label>
+  </data-field>
+  <data-field id="startDate" field-name="startDate" required="true" max-length="999">
+    <label><![CDATA[From Date]]></label>
+    <label xml:lang="de_DE"><![CDATA[Startdatum]]></label>
+    <label xml:lang="en_GB"><![CDATA[From Date]]></label>
+    <label xml:lang="en_US"><![CDATA[From Date]]></label>
+  </data-field>
+  <data-field id="endDate" field-name="endDate" max-length="999">
+    <label><![CDATA[End Date]]></label>
+    <label xml:lang="de_DE"><![CDATA[Enddatum]]></label>
+    <label xml:lang="en_GB"><![CDATA[End Date]]></label>
+    <label xml:lang="en_US"><![CDATA[End Date]]></label>
+  </data-field>
+</background-element>
+<background-element id="education" type-id="6">
+  <label><![CDATA[Formal Education]]></label>
+  <label xml:lang="de_DE"><![CDATA[Ausbildung / Studium]]></label>
+  <label xml:lang="en_GB"><![CDATA[Formal Education]]></label>
+  <label xml:lang="en_US"><![CDATA[Formal Education]]></label>
+  <data-field id="major" field-name="vfld2" max-length="4000">
+    <label><![CDATA[Area of Study]]></label>
+    <label xml:lang="de_DE"><![CDATA[Fachrichtung]]></label>
+    <label xml:lang="en_GB"><![CDATA[Area of Study]]></label>
+    <label xml:lang="en_US"><![CDATA[Area of Study]]></label>
+    <picklist id="major"/>
+  </data-field>
+  <data-field id="school" field-name="vfld1" max-length="4000">
+    <label><![CDATA[University]]></label>
+    <label xml:lang="de_DE"><![CDATA[Hochschule]]></label>
+    <label xml:lang="en_GB"><![CDATA[University]]></label>
+    <label xml:lang="en_US"><![CDATA[University]]></label>
+  </data-field>
+  <data-field id="degree" field-name="vfld3" max-length="4000">
+    <label><![CDATA[Degree]]></label>
+    <label xml:lang="de_DE"><![CDATA[Abschluss]]></label>
+    <label xml:lang="en_GB"><![CDATA[Degree]]></label>
+    <label xml:lang="en_US"><![CDATA[Degree]]></label>
+    <picklist id="degree"/>
+  </data-field>
+  <data-field id="startDate" field-name="startDate" max-length="999">
+    <label><![CDATA[From Date]]></label>
+    <label xml:lang="de_DE"><![CDATA[Startdatum]]></label>
+    <label xml:lang="en_GB"><![CDATA[From Date]]></label>
+    <label xml:lang="en_US"><![CDATA[From Date]]></label>
+  </data-field>
+  <data-field id="endDate" field-name="endDate" max-length="999">
+    <label><![CDATA[End Date]]></label>
+    <label xml:lang="de_DE"><![CDATA[Enddatum]]></label>
+    <label xml:lang="en_GB"><![CDATA[End Date]]></label>
+    <label xml:lang="en_US"><![CDATA[End Date]]></label>
+  </data-field>
+</background-element>
+<background-element id="languages" type-id="11">
+  <label><![CDATA[Language Skills]]></label>
+  <label xml:lang="de_DE"><![CDATA[Sprachkenntnisse]]></label>
+  <label xml:lang="en_GB"><![CDATA[Language Skills]]></label>
+  <label xml:lang="en_US"><![CDATA[Language Skills]]></label>
+  <data-field id="language" field-name="vfld1" required="true" max-length="4000">
+    <label><![CDATA[Language]]></label>
+    <label xml:lang="de_DE"><![CDATA[Sprache]]></label>
+    <label xml:lang="en_GB"><![CDATA[Language]]></label>
+    <label xml:lang="en_US"><![CDATA[Language]]></label>
+    <picklist id="language"/>
+  </data-field>
+  <data-field id="speakingProf" field-name="vfld2" required="true" max-length="4000">
+    <label><![CDATA[Speaking Proficiency]]></label>
+    <label xml:lang="de_DE"><![CDATA[Sprachniveau]]></label>
+    <label xml:lang="en_GB"><![CDATA[Speaking Proficiency]]></label>
+    <label xml:lang="en_US"><![CDATA[Speaking Proficiency]]></label>
+    <picklist id="fluency"/>
+  </data-field>
+  <data-field id="readingProf" field-name="vfld3" required="true" max-length="4000">
+    <label><![CDATA[Reading Proficiency]]></label>
+    <label xml:lang="de_DE"><![CDATA[Leseniveau]]></label>
+    <label xml:lang="en_GB"><![CDATA[Reading Proficiency]]></label>
+    <label xml:lang="en_US"><![CDATA[Reading Proficiency]]></label>
+    <picklist id="fluency"/>
+  </data-field>
+  <data-field id="writingProf" field-name="vfld4" required="true" max-length="4000">
+    <label><![CDATA[Writing Proficiency]]></label>
+    <label xml:lang="de_DE"><![CDATA[Schreibniveau]]></label>
+    <label xml:lang="en_GB"><![CDATA[Writing Proficiency]]></label>
+    <label xml:lang="en_US"><![CDATA[Writing Proficiency]]></label>
+    <picklist id="fluency"/>
+  </data-field>
+</background-element>
+<background-element id="certificates" type-id="8">
+  <label><![CDATA[Certifications/Licenses]]></label>
+  <label xml:lang="de_DE"><![CDATA[Zertifizierungen]]></label>
+  <label xml:lang="en_GB"><![CDATA[Certifications/Licenses]]></label>
+  <label xml:lang="en_US"><![CDATA[Certifications/Licenses]]></label>
+  <data-field id="name" field-name="vfld1" required="true" max-length="4000">
+    <label><![CDATA[Certification/License]]></label>
+    <label xml:lang="de_DE"><![CDATA[Zertifizierungen]]></label>
+    <label xml:lang="en_GB"><![CDATA[Certifications/Licenses]]></label>
+    <label xml:lang="en_US"><![CDATA[Certifications/Licenses]]></label>
+  </data-field>
+  <data-field id="description" field-name="vfld2" display-size="100" max-length="4000">
+    <label><![CDATA[Description]]></label>
+    <label xml:lang="de_DE"><![CDATA[Beschreibung]]></label>
+    <label xml:lang="en_GB"><![CDATA[Description]]></label>
+    <label xml:lang="en_US"><![CDATA[Description]]></label>
+  </data-field>
+  <data-field id="institution" field-name="vfld3" max-length="4000">
+    <label><![CDATA[Institution]]></label>
+    <label xml:lang="de_DE"><![CDATA[Institution / Bildungsträger]]></label>
+    <label xml:lang="en_GB"><![CDATA[Institution]]></label>
+    <label xml:lang="en_US"><![CDATA[Institution]]></label>
+  </data-field>
+  <data-field id="startDate" field-name="startDate" max-length="999">
+    <label><![CDATA[Effective Date]]></label>
+    <label xml:lang="de_DE"><![CDATA[Zertifikat ausgestellt am]]></label>
+    <label xml:lang="en_GB"><![CDATA[Effective Date]]></label>
+    <label xml:lang="en_US"><![CDATA[Effective Date]]></label>
+  </data-field>
+  <data-field id="endDate" field-name="endDate" max-length="999">
+    <label><![CDATA[Expiration Date (if applicable)]]></label>
+    <label xml:lang="de_DE"><![CDATA[ggf. Ablaufdatum]]></label>
+    <label xml:lang="en_GB"><![CDATA[Expiration Date (if applicable)]]></label>
+    <label xml:lang="en_US"><![CDATA[Expiration Date (if applicable)]]></label>
+  </data-field>
+</background-element>
+<sm-mapping field-id="languages" map-to="languages"/>
+<sm-mapping field-id="outsideWorkExperience" map-to="outsideWorkExperience"/>
+<sm-mapping field-id="education" map-to="education"/>
+<sm-mapping field-id="certificates" map-to="certificates"/>
+</candidate-profile-data-model>
+
+
+

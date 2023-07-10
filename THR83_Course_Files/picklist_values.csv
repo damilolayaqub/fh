@@ -1,0 +1,12 @@
+﻿[OPERATOR],id,effectiveStartDate,values.externalCode,values.nonUniqueExternalCode,values.parentPickListValue.externalCode,values.label.en_US,values.label.defaultValue,values.label.es_ES,values.label.de_DE,values.status,values.optionId,values.minVal,values.maxVal,values.lValue,values.rValue,values.optValue
+,facility,1/1/1900,facility_DE_FFM_INN,facility_DE_FFM_INN,,Frankfurt Innenstadt,Frankfurt Innenstadt,,,A,119212,,,,,
+,facility,1/1/1900,facility_ES_MD_CTBA,facility_ES_MD_CTBA,,Madrid CTBA,Madrid CTBA,,,A,119210,,,,,
+,facility,1/1/1900,facility_US_HOU_SKY,facility_US_HOU_SKY,,Houston Skyline,Houston Skyline,,,A,119207,,,,,
+,facility,1/1/1900,facility_US_DEN_CBD,facility_US_DEN_CBD,,Denver Central Business District,Denver Central Business District,,,A,119206,,,,,
+,facility,1/1/1900,facility_US_LA_DTLA,facility_US_LA_DTLA,,LA Downtown,LA Downtown,,,A,119205,,,,,
+,facility,1/1/1900,facility_US_NYC_HY,facility_US_NYC_HY,,NYC Hudson Yards,NYC Hudson Yards,,,A,119204,,,,,
+,facility,1/1/1900,facility_US_NYC_FIDI,facility_US_NYC_FIDI,,NYC Financial District,NYC Financial District,,,A,119203,,,,,
+,facility,1/1/1900,facility_US_CHI_GC,facility_US_CHI_GC,,Chicago Gold Coast,Chicago Gold Coast,,,A,119202,,,,,
+,facility,1/1/1900,facility_US_CHI_LOOP,facility_US_CHI_LOOP,,Chicago Loop,Chicago Loop,,,A,119201,,,,,
+,facility,1/1/1900,facility_MX_MXC,facility_MX_MXC,,Mexico City,Mexico City,,,A,119279,,,,,
+,facility,1/1/1900,facility_CA_MON,facility_CA_MON,,Montreal,Montreal,,,A,119280,,,,,
